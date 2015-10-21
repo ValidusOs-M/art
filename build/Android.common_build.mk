@@ -69,6 +69,7 @@ ART_HOST_CLANG := false
 # Clang on the target. Target builds use GCC by default.
 ART_TARGET_CLANG := false
 ART_TARGET_CLANG_arm := false
+# b/25130937
 ART_TARGET_CLANG_arm64 :=
 ART_TARGET_CLANG_mips :=
 ART_TARGET_CLANG_mips64 :=
