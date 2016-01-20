@@ -301,14 +301,6 @@ static jobjectArray DexFile_getClassNameList(JNIEnv* env, jclass, jobject cookie
 static jint GetDexOptNeeded(JNIEnv* env, const char* filename,
     const char* pkgname, const char* instruction_set, const jboolean defer) {
 
-  if ((filename == nullptr) || !OS::FileExists(filename)) {
-    LOG(ERROR) << "DexFile_getDexOptNeeded file '" << filename << "' does not exist";
-    ScopedLocalRef<jclass> fnfe(env, env->FindClass("java/io/FileNotFoundException"));
-    const char* message = (filename == nullptr) ? "<empty file name>" : filename;
-    env->ThrowNew(fnfe.get(), message);
-    return OatFileAssistant::kNoDexOptNeeded;
-  }
-
   const InstructionSet target_instruction_set = GetInstructionSetFromString(instruction_set);
   if (target_instruction_set == kNone) {
     ScopedLocalRef<jclass> iae(env, env->FindClass("java/lang/IllegalArgumentException"));
