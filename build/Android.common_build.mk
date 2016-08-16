@@ -63,7 +63,7 @@ ART_HOST_CLANG := false
 # Clang on the target. Target builds use GCC by default.
 ART_TARGET_CLANG := false
 ART_TARGET_CLANG_arm := false
-ART_TARGET_CLANG_arm64 := true
+ART_TARGET_CLANG_arm64 := false
 
 define set-target-local-clang-vars
     LOCAL_CLANG := $(ART_TARGET_CLANG)
